@@ -145,6 +145,7 @@ package double_pointer;//给你一个整数数组 nums。
 // 👍 4 👎 0
 
 //leetcode submit region begin(Prohibit modification and deletion)
+// This problem is too difficult to solve is.
 class LC3649perfectPairs {
     public long perfectPairs(int[] nums) {
         return 0;
