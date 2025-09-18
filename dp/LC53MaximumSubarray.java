@@ -63,12 +63,13 @@ class Solution {
     // dynamic programming
     public int maxSubArray1(int[] nums) {
         int n = nums.length;
-        int[] f = new int[n + 1];
 
-        int res = f[1] = nums[0];
+        int pre = 0;
+        int res  = nums[0];
         for (int i = 1; i < n; ++i) {
-            int tmp = f[i + 1] = Math.max(f[i], 0) + nums[i];
-            res = Math.max(tmp, res);
+            int cur = Math.max(pre, 0) + nums[i];
+            res = Math.max(cur, res);
+            pre = cur;
         }
         return res;
     }
