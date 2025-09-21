@@ -48,6 +48,17 @@ class Solution {
         }
         return dp[n];
     }
+
+    public int rob2(int[] nums) {
+        int n = nums.length;
+        int pre1 = 0, pre2 = 0;
+        for (int x : nums) {
+            int cur = Math.max(pre1, pre2 + x);
+            pre2 = pre1;
+            pre1 = cur;
+        }
+        return pre1;
+    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
 

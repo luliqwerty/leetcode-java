@@ -43,6 +43,7 @@ class Solution {
     public int maxProfit(int[] prices) {
         int min = Integer.MAX_VALUE;
         int res = 0;
+        // 遍历过程中，维护一个当前最小值，用当天的股价减去这个最小值
         for (int i = 0; i < prices.length; ++i) {
             if (prices[i] < min) min = prices[i];
             res = Math.max(res, prices[i] - min);
