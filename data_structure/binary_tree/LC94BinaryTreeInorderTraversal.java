@@ -1,46 +1,27 @@
-//给你二叉树的根节点 root ，返回它节点值的 前序 遍历。 
+//给定一个二叉树的根节点 root ，返回 它的 中序 遍历 。 
 //
 // 
 //
 // 示例 1： 
-//
 // 
-// 输入：root = [1,null,2,3] 
 // 
-//
-// 输出：[1,2,3] 
-//
-// 解释： 
-//
+//输入：root = [1,null,2,3]
+//输出：[1,3,2]
 // 
 //
 // 示例 2： 
 //
 // 
-// 输入：root = [1,2,3,4,5,null,8,null,null,6,7,9] 
-// 
-//
-// 输出：[1,2,4,5,6,7,3,8,9] 
-//
-// 解释： 
-//
+//输入：root = []
+//输出：[]
 // 
 //
 // 示例 3： 
 //
 // 
-// 输入：root = [] 
+//输入：root = [1]
+//输出：[1]
 // 
-//
-// 输出：[] 
-//
-// 示例 4： 
-//
-// 
-// 输入：root = [1] 
-// 
-//
-// 输出：[1] 
 //
 // 
 //
@@ -53,19 +34,17 @@
 //
 // 
 //
-// 进阶：递归算法很简单，你可以通过迭代算法完成吗？ 
+// 进阶: 递归算法很简单，你可以通过迭代算法完成吗？ 
 //
-// 👍 1357 👎 0
+// 👍 2318 👎 0
 
   
 package data_structure.binary_tree;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-public class LC144BinaryTreePreorderTraversal {
+public class LC94BinaryTreeInorderTraversal {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -84,29 +63,28 @@ public class LC144BinaryTreePreorderTraversal {
  * }
  */
 class Solution {
-
-    public final List<Integer> res = new ArrayList<>();
-    public List<Integer> preorderTraversal(TreeNode root) {
-        preorderTraversalInternal(root);
+    List<Integer> res = new ArrayList<>();
+    public List<Integer> inorderTraversal(TreeNode root) {
+        inorderTraversalInternal(root);
         return res;
     }
 
-    public void preorderTraversalInternal(TreeNode root) {
+    public void inorderTraversalInternal(TreeNode root) {
         if (root == null) {
             return;
         }
-        res.add(root.val);
         if (root.left != null) {
-            preorderTraversalInternal(root.left);
+            inorderTraversalInternal(root.left);
         }
+        res.add(root.val);
         if (root.right != null) {
-            preorderTraversalInternal(root.right);
+            inorderTraversalInternal(root.right);
         }
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

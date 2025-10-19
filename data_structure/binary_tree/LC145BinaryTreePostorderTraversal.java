@@ -1,4 +1,4 @@
-//给你二叉树的根节点 root ，返回它节点值的 前序 遍历。 
+//给你一棵二叉树的根节点 root ，返回其节点值的 后序遍历 。 
 //
 // 
 //
@@ -8,7 +8,7 @@
 // 输入：root = [1,null,2,3] 
 // 
 //
-// 输出：[1,2,3] 
+// 输出：[3,2,1] 
 //
 // 解释： 
 //
@@ -20,7 +20,7 @@
 // 输入：root = [1,2,3,4,5,null,8,null,null,6,7,9] 
 // 
 //
-// 输出：[1,2,4,5,6,7,3,8,9] 
+// 输出：[4,6,7,5,2,9,8,3,1] 
 //
 // 解释： 
 //
@@ -47,7 +47,7 @@
 // 提示： 
 //
 // 
-// 树中节点数目在范围 [0, 100] 内 
+// 树中节点的数目在范围 [0, 100] 内 
 // -100 <= Node.val <= 100 
 // 
 //
@@ -55,57 +55,51 @@
 //
 // 进阶：递归算法很简单，你可以通过迭代算法完成吗？ 
 //
-// 👍 1357 👎 0
+// 👍 1257 👎 0
 
   
 package data_structure.binary_tree;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-public class LC144BinaryTreePreorderTraversal {
+public class LC145BinaryTreePostorderTraversal {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
+public class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
  */
 class Solution {
-
-    public final List<Integer> res = new ArrayList<>();
-    public List<Integer> preorderTraversal(TreeNode root) {
-        preorderTraversalInternal(root);
+    private final List<Integer> res = new ArrayList<>();
+    public List<Integer> postorderTraversal(TreeNode root) {
+        postorderTraversalInternal(root);
         return res;
     }
 
-    public void preorderTraversalInternal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        res.add(root.val);
+    public void postorderTraversalInternal(TreeNode root) {
+        if (root == null) return;
         if (root.left != null) {
-            preorderTraversalInternal(root.left);
+            postorderTraversalInternal(root.left);
         }
         if (root.right != null) {
-            preorderTraversalInternal(root.right);
+            postorderTraversalInternal(root.right);
         }
+        res.add(root.val);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
-
     public class TreeNode {
         int val;
         TreeNode left;
