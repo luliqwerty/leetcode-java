@@ -2,3 +2,5 @@
 LeetCode.iml
 */*.iml
 leetcode/editor/cn/
+out/
+*/*.class
