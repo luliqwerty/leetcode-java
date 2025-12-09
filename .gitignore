@@ -1,6 +1,7 @@
 .idea
-LeetCode.iml
+*.iml
 */*.iml
+.DS_Store
 leetcode/editor/cn/
 out/
 */*.class
